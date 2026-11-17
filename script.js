@@ -747,6 +747,16 @@
   /* ------------------------------------------------------------------------
      UTILIDADES Y ARRANQUE
      ------------------------------------------------------------------------ */
+  function initPrivacyDetails() {
+    const details = $(".legal-details");
+    if (!details) return;
+    const openIfHash = () => {
+      if (location.hash === "#privacidad") details.open = true;
+    };
+    openIfHash();
+    window.addEventListener("hashchange", openIfHash);
+  }
+
   function initYear() {
     const yearEl = $("#year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -758,5 +768,6 @@
     initCarousel();
     initTurnos();
     initYear();
+    initPrivacyDetails();
   });
 })();
